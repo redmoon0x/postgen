@@ -6,7 +6,12 @@ A Python module that:
 
 ## Installation
 
-1. Clone this repository
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/redmoon0x/postgen.git
+   cd postgen
+   ```
+
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
