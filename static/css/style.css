@@ -1,0 +1,89 @@
+/* Custom font settings for Kannada text */
+@font-face {
+    font-family: 'Noto Sans Kannada';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap');
+}
+
+/* Apply Kannada font to specific elements */
+.kannada-text, 
+#blogTitle, 
+#blogContent, 
+#instaCaption {
+    font-family: 'Noto Sans Kannada', system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth transitions */
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Loading animation enhancement */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Tag hover effects */
+.bg-blue-100, .bg-pink-100 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.bg-blue-100:hover, .bg-pink-100:hover {
+    transform: scale(1.05);
+}
+
+/* Custom focus styles */
+.focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Results section animation */
+#results {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#results:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+    .text-4xl {
+        font-size: 1.875rem;
+    }
+    
+    .text-2xl {
+        font-size: 1.5rem;
+    }
+    
+    .text-xl {
+        font-size: 1.25rem;
+    }
+}
