@@ -1,7 +1,23 @@
+/* Modern design system */
+:root {
+    --primary: #3B82F6;
+    --primary-dark: #2563EB;
+    --success: #10B981;
+    --error: #EF4444;
+    --text-primary: #1F2937;
+    --text-secondary: #4B5563;
+    --bg-primary: #F9FAFB;
+}
+
 /* Custom font settings for Kannada text */
 @font-face {
     font-family: 'Noto Sans Kannada';
     src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap');
+}
+
+/* Modern gradient backgrounds */
+.gradient-background {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
 }
 
 /* Apply Kannada font to specific elements */
@@ -12,9 +28,19 @@
     font-family: 'Noto Sans Kannada', system-ui, -apple-system, sans-serif;
 }
 
-/* Smooth transitions */
+/* Enhanced transitions */
 .transition-all {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 /* Custom scrollbar */
@@ -35,15 +61,42 @@
     background: #666;
 }
 
-/* Loading animation enhancement */
+/* Enhanced loading animations */
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 .animate-spin {
-    animation: spin 1s linear infinite;
+    animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.animate-progress {
+    animation: progress 2s ease-in-out;
 }
 
 /* Tag hover effects */
@@ -55,17 +108,59 @@
     transform: scale(1.05);
 }
 
-/* Custom focus styles */
+/* Enhanced focus and interactive states */
 .focus-ring:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5);
+    transition: box-shadow 0.2s ease-in-out;
 }
 
-/* Results section animation */
+.input-focus {
+    transition: all 0.3s ease;
+}
+
+.input-focus:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
+}
+
+/* Button states */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Enhanced results section animation */
 #results {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#results.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Content sections hover effects */
+.content-section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 #results:not(.hidden) {
